@@ -1,0 +1,73 @@
+{
+  "name": "shopify-app-fit-shop",
+  "version": "0.0.1",
+  "description": "fit and shop shopfy app",
+  "scripts": {
+    "lint": "next lint",
+    "tunnel": "node node_modules/localtunnel/bin/lt.js lt --port 8081 --subdomain shopify-fit-shop",
+    "dev": "rmdir .next && node node_modules/cross-env/src/bin/cross-env.js ./server/index.js",
+    "build": "node node_modules/next/dist/bin/next build",
+    "start": "npm run build && node node_modules/cross-env/src/bin/cross-env.js NODE_ENV=production node ./server/index.js"
+  },
+  "dependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.15.0",
+    "@babel/register": "^7.14.5",
+    "@shopify/app-bridge": "^2.0.3",
+    "@shopify/app-bridge-react": "^2.0.3",
+    "@shopify/app-bridge-utils": "^2.0.3",
+    "@shopify/koa-shopify-auth": "^4.1.4",
+    "@shopify/koa-shopify-webhooks": "^3.0.2",
+    "@shopify/polaris": "^6.6.0",
+    "@shopify/shopify-api": "^1.4.1",
+    "apollo-boost": "^0.4.9",
+    "cryptr": "^6.0.2",
+    "dotenv": "^10.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-next": "^11.0.1",
+    "graphql": "^15.5.1",
+    "graphql-tag": "^2.12.5",
+    "isomorphic-fetch": "^3.0.0",
+    "js-cookie": "^3.0.0",
+    "koa": "^2.13.1",
+    "koa-combine-routers": "^4.0.2",
+    "koa-router": "^10.0.0",
+    "koa-session": "^6.2.0",
+    "mongoose": "^5.13.6",
+    "next": "^11.0.1",
+    "next-env": "^1.1.1",
+    "node-fetch": "^2.6.1",
+    "react": "^16.14.0",
+    "react-apollo": "^3.1.5",
+    "react-dom": "^17.0.2",
+    "webpack": "^5.49.0"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.15.0",
+    "@babel/preset-stage-3": "^7.8.3",
+    "babel-jest": "^27.0.6",
+    "babel-register": "^6.26.0",
+    "cross-env": "^7.0.3",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "husky": "^7.0.1",
+    "jest": "^27.0.6",
+    "lint-staged": "^11.1.2",
+    "localtunnel": "^2.0.1",
+    "nodemon": "^2.0.12",
+    "prettier": "^2.3.2",
+    "react-addons-test-utils": "^15.6.2",
+    "react-test-renderer": "^17.0.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,css,json,md}": [
+      "prettier --write"
+    ]
+  }
+}
